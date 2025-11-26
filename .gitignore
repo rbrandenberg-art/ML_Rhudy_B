@@ -1,0 +1,37 @@
+# ---------------------------------------------
+# 1. IGNORAR DATOS (Archivos grandes .parquet, .csv)
+# Esto es CRUCIAL para evitar el error "remote end hung up unexpectedly"
+# Al incluir la extensión, ignoras TODOS los archivos de datos de ese tipo.
+*.parquet
+*.csv
+*.zip
+
+# Opcional: Si tienes una carpeta de datos
+# data/
+
+# ---------------------------------------------
+# 2. IGNORAR ARCHIVOS GENERADOS (Python/Jupyter)
+
+# Ignorar directorios de paquetes compilados
+__pycache__/
+
+# Ignorar entornos virtuales (si usaste "venv" o "env")
+venv/
+env/
+
+# Ignorar archivos generados por Jupyter (puntos de control)
+.ipynb_checkpoints/
+
+# Ignorar archivos de registro del IDE (Visual Studio Code, etc.)
+.vscode/
+
+# ---------------------------------------------
+# 3. IGNORAR ARCHIVOS DEL SISTEMA
+
+# Mac/Linux
+.DS_Store
+
+# ---------------------------------------------
+# 4. IGNORAR ARCHIVOS DE LOGGING O TEMPORALES
+*.log
+*.tmp
