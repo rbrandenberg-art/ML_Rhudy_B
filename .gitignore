@@ -25,13 +25,8 @@ env/
 # Ignorar archivos de registro del IDE (Visual Studio Code, etc.)
 .vscode/
 
-# ---------------------------------------------
-# 3. IGNORAR ARCHIVOS DEL SISTEMA
+# Ignorar el dataset final fusionado
+df_final_credit_scoring_merged.parquet
 
-# Mac/Linux
-.DS_Store
-
-# ---------------------------------------------
-# 4. IGNORAR ARCHIVOS DE LOGGING O TEMPORALES
-*.log
-*.tmp
+# Ignorar la carpeta de datos fuente
+datos_examen/
