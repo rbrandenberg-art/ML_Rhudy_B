@@ -52,6 +52,8 @@ El grupo 2 es el de mayor riesgo con un 9,37% de incumplimiento, un 1,6% mas que
 Mientras que la mas baja es el grupo 1 con un 5,13%, siendo tambien el grupo con menos clientes y el ingreso mas alto, el grupo ideal para trabajar con modelos supervisados mas flexibles.
 El grupo que mas se deberia tener en cuenta es el 4, pues es el que mayor cantidad de clientes tiene.
 Podemos usar el metodo de la silueta para validar la eleccion del K, sin embargo se hara solo con el 10% de las muestras, ya que, este metodo toma muchos recursos y tiempo. Lo que se muestra con este metodo es que el K optimo es 2, debido a que con el 10% de las muestras solo se logran distinguir los grupos mas densos de informacion, esto es porque los datos estan muy dispersos aun aplicando el PCA, pues una muestra pequeña en un espacio de 150 dimenciones es menos probable que represente la verdadera varianza del dataset completo que una muestra del 90%.
+Tambien esta el metodo del dendrograma que, de manera visual, se puede identificar el K optimo. Se opto por usar 1000 muestras agrupadas en los 10 clusters principales, se nos muestra que segun la distancia Ward el numero optimo seria entre el 150 y 200, lo que daria un K optimo = 3 o 5.
+El problema de este metodo es que no es posible usar los datos completos por sobrecarga de los datos, lo que puede ser poco representativo.
 
 # Isolation forest
 Finalmente con Isolation Forest se detectaran los outliers, donde detectaremos la tasa de incumplimiento entre las observaciones normales y las anomalas.
