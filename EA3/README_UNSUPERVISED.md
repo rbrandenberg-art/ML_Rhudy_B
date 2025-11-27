@@ -10,16 +10,10 @@ Requerimiento del Modelo: La mayoría de los modelos de Machine Learning (inclui
 
 Ingeniería de Características: El proceso de unión no es solo un merge; es una transformación de series de tiempo/transaccional (múltiples filas de historial) en características de resumen (una sola fila con promedios, sumas y conteos). Por ejemplo, el número promedio de días de mora o la suma total de deuda externa son métricas clave de riesgo que solo se obtienen al resumir las tablas bureau y previous_application.
 
-El One-Hot Encoding (OHE) se aplicó principalmente a las variables categóricas de las tablas secundarias (como STATUS en bureau_balance o NAME_CONTRACT_STATUS en previous_application).
-
-Conservación de la Información Categórica: El OHE convierte una variable categórica (ej., Crédito Activo) en varias columnas binarias (0 o 1) , lo que permite que el modelo las use.
-
-En el Contexto de Agregación (Clave para el Negocio): Cuando agregamos a nivel de cliente, el OHE nos permite transformar una columna categórica en conteo de ocurrencias a nivel de cliente.
-
-En resumen, la unión de tablas y el OHE fueron pasos técnicos obligatorios para traducir la información de riesgo dispersa y cualitativa en métricas numéricas y estructuradas que el modelo puede aprender y utilizar para predecir el score.
+Por ultimo se aplico el One-Hot Encoding (OHE) principalmente a las variables categóricas de las tablas secundarias como STATUS en bureau_balance o NAME_CONTRACT_STATUS en previous_application.
 
 # Modelado y evaluacion
-En el modelado empezaremos por PCA para simplificar el dataset de 913 columnas y reducir el ruido antes de aplicar las otras técnicas. Tanto K-Means como Isolation Forest dependen de la distancia y el escalado de las variables. Aplicar K-Means o Isolation Forest en un espacio de 913 dimensiones puede generar resultados sesgados, inestables o demasiado lentos.
+En el modelado empezaremos por PCA para simplificar el dataset de 913 columnas y reducir el ruido antes de aplicar las otras técnicas. Se escogio utilizar K-means y isolation forest, debido a que es mas facil de interpretar, ademas convinando estas dos tecnicas se pueden compensar las ebilidades que tubo el K-means frente a los outliers. Estos dependen de la distancia y el escalado de las variables. Aplicar K-Means o Isolation Forest en un espacio de 913 dimensiones puede generar resultados sesgados, inestables o demasiado lentos.
 
 # PCA
 Al aplicar PCA primero, se obtendran nuevas variables no correlacionadas (Componentes Principales) que capturan la mayor variación, lo que hace que los clusters de K-Means y los outliers de Isolation Forest sean más significativos y eficientes de calcular.
